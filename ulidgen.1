@@ -1,0 +1,50 @@
+.Dd October 2, 2024
+.Dt ULIDGEN 1
+.Os
+.Sh NAME
+.Nm ulidgen
+.Nd generate or tag lines with ULID
+.Sh SYNOPSIS
+.Nm
+.Op Fl n Ar N
+.Op Fl t
+.Sh DESCRIPTION
+.Nm
+generates and prints one or multiple ULID
+(Universally Unique Lexicographically Sortable Identifier).
+.Pp
+The options are as follows:
+.Bl -tag -width Ds
+.It Fl n Ar N
+Print
+.Ar N
+consecutive ULID.
+.It Fl t
+Read lines from standard input, and prefix each line with a ULID.
+.El
+.Sh EXIT STATUS
+.Ex -std
+.Sh EXAMPLES
+Generating three ULID:
+.Bd -literal -offset indent
+% ulidgen -n 3
+01J970QT8Y3F9H32BHX76RRS7T
+01J970QT8Y3F9H32BHX76RRS7V
+01J970QT8Y3F9H32BHX76RRS7W
+.Ed
+.Sh SEE ALSO
+.Lk https://github.com/ulid/spec#specification
+.Pp
+.Xr uuidgen 1
+.Sh AUTHORS
+.An Leah Neukirchen Aq Mt leah@vuxu.org
+.Sh LICENSE
+.Nm
+is in the public domain.
+.Pp
+To the extent possible under law,
+the creator of this work
+has waived all copyright and related or
+neighboring rights to this work.
+.Pp
+.Lk http://creativecommons.org/publicdomain/zero/1.0/
