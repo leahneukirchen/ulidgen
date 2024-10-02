@@ -7,12 +7,11 @@
  * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-#include <sys/random.h>
-
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
 void
 ulidgen_r(char ulid[27])
@@ -53,7 +52,7 @@ ulidgen_r(char ulid[27])
 	}
 
 	unsigned char rnd[16];  /* use 16 bytes for easier encoding */
-	if (getrandom(rnd, sizeof rnd, 0) < 0)
+	if (getentropy(rnd, sizeof rnd) < 0)
 		abort();
 
 	for (int i = 0; i < 16; i++)
